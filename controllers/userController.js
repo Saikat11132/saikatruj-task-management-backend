@@ -2,8 +2,6 @@ const userSchema = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt_token = require('jsonwebtoken');
 const helper = require('../helper/index');
-const { generateToken, sendEmailVerifyEmail, sendResetPasswordEmail } = require('../common/common');
-const fs = require('fs');
 
 exports.register = async (req, res) => {
     try {
@@ -70,7 +68,7 @@ exports.login = async (req, res) => {
         // Log the expiration time
         // console.log('Token expires at - ', new Date(decodedToken.exp * 1000));
 
-        let userResult = await userSchema.findById(user._id)
+        let userResult = await userSchema.findById(user._id).select('-password');
         return res.status(200).json(helper.response(200, true, "Login Successfully!", { user: userResult, token: token, tokenExpiresAt: decodedToken.exp }));
     } catch (error) {
         return res.status(500).json(helper.response(500, false, "something went wrong!"));

@@ -30,14 +30,9 @@ const taskSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    createdAt: {
+    completionDate: {
         type: Date,
-        default: Date.now,
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now,
-    },
+    }
 }, { timestamps: true });
 
 // Index for better query performance
