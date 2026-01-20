@@ -74,3 +74,15 @@ exports.login = async (req, res) => {
         return res.status(500).json(helper.response(500, false, "something went wrong!"));
     }
 }
+
+exports.getProfile = async (req, res) => {
+    try {
+        const userId = req.user.userId;
+        let userResult = await userSchema.findById(userId).select('-password');
+        return res.status(200).json(helper.response(200, true, "User profile fetched successfully!", { user: userResult }));
+    }
+    catch (error) {
+        return res.status(500).json(helper.response(500, false, "something went wrong!"));
+    }
+}
+    
