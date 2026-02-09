@@ -1,0 +1,362 @@
+{
+  "info": {
+    "_postman_id": "47b5a988-97a9-4b95-b6c6-ca494a4965ce",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "25713400"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"abcd@mail.com\",\r\n    \"password\":\"abcd\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{API_URL}}auth/login",
+          "host": [
+            "{{API_URL}}auth"
+          ],
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"abcd@mail.com\",\r\n    \"password\":\"abcd\",\r\n    \"name\":\"jkfsdfhjkshf\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{API_URL}}auth/register",
+          "host": [
+            "{{API_URL}}auth"
+          ],
+          "path": [
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "profile",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{TASK_MNG_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"fdsfvcxva\",\r\n    \"password\":\"hdjkasjfsdas\",\r\n    \"name\":\"jkfsdfhjkshf\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{API_URL}}auth/profile",
+          "host": [
+            "{{API_URL}}auth"
+          ],
+          "path": [
+            "profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create task",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{TASK_MNG_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"dsadada\",\r\n    \"description\": \"Updated task description\",\r\n    \"priority\": \"High\",\r\n    \"status\": \"Completed\",\r\n    \"dueDate\": \"2026-01-29T00:00:00.000Z\"\r\n}"
+        },
+        "url": {
+          "raw": "{{API_URL}}tasks",
+          "host": [
+            "{{API_URL}}tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get task of user",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{TASK_MNG_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{API_URL}}tasks?sortBy=dueDate&page=1&limit=2",
+          "host": [
+            "{{API_URL}}tasks"
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "sddsafsdadfAFASDFAfzcvVSDV",
+              "disabled": true
+            },
+            {
+              "key": "priority",
+              "value": "Low",
+              "disabled": true
+            },
+            {
+              "key": "sortBy",
+              "value": "dueDate"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "dashboard-data",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{TASK_MNG_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{API_URL}}dashboard-data/",
+          "host": [
+            "{{API_URL}}dashboard-data"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "sddsafsdadfAFASDFAfzcvVSDV",
+              "disabled": true
+            },
+            {
+              "key": "priority",
+              "value": "Low",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get task of user Copy",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{TASK_MNG_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN"
+          }
+        ],
+        "url": {
+          "raw": "{{API_URL}}tasks/696f65895341607f6b0f1744",
+          "host": [
+            "{{API_URL}}tasks"
+          ],
+          "path": [
+            "696f65895341607f6b0f1744"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "edit task",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{TASK_MNG_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"\",\n    \"description\": \"Updated task description\",\n    \"priority\": \"High\",\n    \"status\": \"Completed\",\n    \"dueDate\": \"2026-01-29T00:00:00.000Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{API_URL}}tasks/696f65895341607f6b0f1744",
+          "host": [
+            "{{API_URL}}tasks"
+          ],
+          "path": [
+            "696f65895341607f6b0f1744"
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "sddsafsdadfAFASDFAfzcvVSDV",
+              "disabled": true
+            },
+            {
+              "key": "priority",
+              "value": "Low",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_URL",
+      "value": ""
+    },
+    {
+      "key": "TASK_MNG_TOKEN",
+      "value": ""
+    },
+    {
+      "key": "API_URL",
+      "value": "",
+      "disabled": true
+    }
+  ]
+}
